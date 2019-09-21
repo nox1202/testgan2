@@ -15,7 +15,7 @@ slim = tf.contrib.slim
 
 HEIGHT, WIDTH, CHANNEL = 128, 128, 3
 BATCH_SIZE = 64
-EPOCH = 1000
+EPOCH = 3000
 version = 'newJewellery'
 newJewel_path = './' + version
 
@@ -25,10 +25,10 @@ def lrelu(x, n, leak=0.2):
 def process_data():   
     current_dir = os.getcwd()
     # parent = os.path.dirname(current_dir)
-    pokemon_dir = os.path.join(current_dir, 'data')
+    newJewel_dir = os.path.join(current_dir, 'data')
     images = []
-    for each in os.listdir(pokemon_dir):
-        images.append(os.path.join(pokemon_dir,each))
+    for each in os.listdir(newJewel_dir):
+        images.append(os.path.join(newJewel_dir,each))
     # print images    
     all_images = tf.convert_to_tensor(images, dtype = tf.string)
     
@@ -241,13 +241,13 @@ def train():
             saver.save(sess, './model/' +version + '/' + str(i))  
         if i%50 == 0:
             # save images
-            if not os.path.exists(newPoke_path):
-                os.makedirs(newPoke_path)
+            if not os.path.exists(newJewel_path):
+                os.makedirs(newJewel_path)
             sample_noise = np.random.uniform(-1.0, 1.0, size=[batch_size, random_dim]).astype(np.float32)
             imgtest = sess.run(fake_image, feed_dict={random_input: sample_noise, is_train: False})
             # imgtest = imgtest * 255.0
             # imgtest.astype(np.uint8)
-            save_images(imgtest, [8,8] ,newPoke_path + '/epoch' + str(i) + '.jpg')
+            save_images(imgtest, [8,8] ,newJewel_path + '/epoch' + str(i) + '.jpg')
             
             print('train:[%d],d_loss:%f,g_loss:%f' % (i, dLoss, gLoss))
     coord.request_stop()
