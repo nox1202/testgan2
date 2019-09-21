@@ -1,7 +1,4 @@
-Python 2.7.16 (v2.7.16:413a49145e, Mar  2 2019, 14:32:10) 
-[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] on darwin
-Type "help", "copyright", "credits" or "license()" for more information.
->>> 
+
 """
 Some codes from https://github.com/Newmu/dcgan_code
 """
