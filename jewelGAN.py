@@ -13,8 +13,8 @@ from utils import *
 
 slim = tf.contrib.slim
 
-HEIGHT, WIDTH, CHANNEL = 256, 256, 3
-BATCH_SIZE = 128
+HEIGHT, WIDTH, CHANNEL = 128, 128, 3
+BATCH_SIZE = 64
 EPOCH = 5000
 version = 'newJewellery'
 newJewel_path = './' + version
